@@ -1,0 +1,12 @@
+applications:
+- name: reactive-webapp
+  disk_quota: 1G
+  instances: 2
+  memory: 768M
+  path: build/libs/reactive-webapp-all.jar
+  routes:
+  - route: reactive-webapp.cfapps.io
+  services:
+  - newrelic-reactive-webapp
+  - mongo-reactive-webapp
+  stack: cflinuxfs2
