@@ -1,14 +1,10 @@
 package com.example
 
-import ch.qos.logback.classic.Level.DEBUG
-import ch.qos.logback.classic.Level.WARN
-import org.springframework.beans.factory.support.DefaultListableBeanFactory
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.ReactiveMongoTemplate
 import org.springframework.data.mongodb.core.mapping.Document
 import org.springframework.fu.application
 import org.springframework.fu.module.data.mongodb.mongodb
-import org.springframework.fu.module.logging.*
 import org.springframework.fu.module.webflux.netty.netty
 import org.springframework.fu.module.webflux.webflux
 import org.springframework.fu.module.jackson.jackson
@@ -20,12 +16,6 @@ import org.springframework.web.reactive.function.server.ServerRequest
 val app = application {
 	bean<UserHandler>()
 	mongodb(connectionString = "mongodb://localhost:27017/reactive-test")
-	logging {
-		level(LogLevel.INFO)
-		logback {
-			consoleAppender()
-		}
-	}
 	webflux {
 		val port = if (profiles.contains("test")) 8181 else 8080
 		server(netty(port)) {
