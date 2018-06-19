@@ -22,3 +22,8 @@ $ ./gradlew build
 ```
 $ java -jar build/libs/reactive-webapp-1.0.0.BUILD-SNAPSHOT-all.jar
 ```
+
+==== Docker
+```
+docker-compose up
+```
